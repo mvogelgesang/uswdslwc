@@ -13,7 +13,9 @@
     "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "postinstall": "husky install",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "uswds:latest": "npm install @uswds/uswds@latest",
+    "uswds:sync": "rsync -Rr node_modules/@uswds/uswds/*.md node_modules/@uswds/uswds/dist/css/*.min.css* node_modules/@uswds/uswds/dist/scss/* node_modules/@uswds/uswds/dist/fonts/*/*.{ttf,woff} node_modules/@uswds/uswds/dist/img/** node_modules/@uswds/uswds/dist/js/*.min.js* force-app/main/default/staticresources/uswds_3_x &&  mv force-app/main/default/staticresources/uswds_3_x/node_modules/@uswds/uswds/*.md force-app/main/default/staticresources/uswds_3_x && mv force-app/main/default/staticresources/uswds_3_x/node_modules/@uswds/uswds/dist force-app/main/default/staticresources/uswds_3_x && rm -rf force-app/main/default/staticresources/uswds_3_x/node_modules"
   },
   "devDependencies": {
     "@lwc/eslint-plugin-lwc": "^1.1.2",
@@ -37,5 +39,8 @@
     "**/{aura,lwc}/**": [
       "eslint"
     ]
+  },
+  "dependencies": {
+    "@uswds/uswds": "^3.7.0"
   }
 }
